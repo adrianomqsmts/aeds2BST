@@ -1,19 +1,33 @@
 #ifndef NO_H_INCLUDED
 #define NO_H_INCLUDED
-#include "row.h"
-typedef struct node * pointer;
-typedef struct node {
+typedef struct _Node {
   int key;
-  pointer left, right;
-}node;
+  struct _Node *left, *right;
+}Node;
 
-void start_root(pointer * root);
-void insert_node(pointer * n, int key);
-void print_tree(pointer * n);
-void delete_node(pointer * n, int key);
-void search_node(pointer * n, int key);
-void width_tree(pointer * n);
-void _width_tree(pointer * n, row * r);
-int height_tree(pointer *n);
+typedef struct _Cell{
+    Node* no;
+    struct _Cell *next;
+}Cell;
+
+typedef struct {
+  Cell *first, *last;
+}Queue;
+
+//FILA
+void init_queue(Queue * r);
+void insert_item_queue(Queue * r, Node * n);
+void remove_item_queue(Queue * r, Node * n);
+int null_queue(Queue * r);
+//BST
+void init_root(Node ** root);
+void insert_node(Node ** n, int key);
+void print_tree(Node ** n);
+void print_node(Node * n);
+void search_node(Node * n, int key);
+void width_tree(Node * n);
+void _width_tree(Node * n, Queue * r);
+int height_tree(Node **n);
+
 
 #endif

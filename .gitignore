@@ -31,3 +31,6 @@
 # Debug files
 *.dSYM/
 *.su
+main/.kdev4/
+main/main.kdev4
+.gitignore
